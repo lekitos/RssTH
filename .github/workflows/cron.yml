@@ -15,7 +15,7 @@ jobs:
       - name: Download artifact
         id: download
         continue-on-error: true
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v4
         with:
           workflow: cron.yml
           workflow_conclusion: success
@@ -42,7 +42,7 @@ jobs:
           PARAMETERS: ${{ vars.PARAMETERS }}
           DRYRUN: ${{ steps.download.outcome }}
       - name: Upload history
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: rss2telegram
           path: rss2telegram.db
